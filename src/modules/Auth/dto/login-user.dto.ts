@@ -13,10 +13,10 @@ export class LoginUserDto {
   email: string;
 
   @ApiProperty({
-    description: 'name of user',
-    example: '@123123@123',
+    description: 'pasword of user',
+    example: 'hamza@1234@',
   })
   @IsNotEmpty()
-  @IsStrongPassword()
+  // @IsStrongPassword()
   password: string;
 }

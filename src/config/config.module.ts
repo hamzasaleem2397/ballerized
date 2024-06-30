@@ -7,11 +7,12 @@ import { validationSchema } from './validation/index';
 @Module({
   imports: [
     NestConfigModule.forRoot({
+      isGlobal: true,
       ignoreEnvFile: false,
+
       validationSchema: validationSchema,
       load: [databaseConfig, authConfig],
       envFilePath: '.env',
-      isGlobal: true,
     }),
   ],
 })

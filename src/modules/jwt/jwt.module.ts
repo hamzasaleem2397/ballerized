@@ -3,7 +3,11 @@ import { JwtUserService } from './services/jwt-user.service';
 import { JwtModule as NestJwtModule } from '@nestjs/jwt';
 
 @Module({
-  imports: [NestJwtModule.register({})],
+  imports: [
+    NestJwtModule.register({
+      global: true,
+    }),
+  ],
   providers: [JwtUserService],
   exports: [JwtUserService],
 })

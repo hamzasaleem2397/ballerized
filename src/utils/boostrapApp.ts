@@ -2,6 +2,7 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { SwaggerTheme, SwaggerThemeNameEnum } from 'swagger-themes';
 import { swaggerAuthMiddleware } from './swaggerAuth';
+import { AuthorizationHeader } from './types';
 
 export async function bootstrapApp(app: NestExpressApplication) {
   app.use('/api-documentation', swaggerAuthMiddleware);
@@ -12,7 +13,7 @@ export async function bootstrapApp(app: NestExpressApplication) {
     .setVersion('1.0')
     .addBearerAuth(
       { type: 'http', scheme: 'bearer', bearerFormat: 'JWT' },
-      'jwt',
+      AuthorizationHeader.BEARER,
     )
     .build();
   const theme = new SwaggerTheme();

@@ -13,7 +13,7 @@ export class JwtUserService {
   generateAuthToken(payload: JWT) {
     const secrets = {
       secret: this.configService.get<string>('auth.jwt_secret'),
-      expiresIn: this.configService.get<number>('auth.jwt_refresh_expiry'),
+      expiresIn: this.configService.get<number>('auth.JWT_EXPIRY'),
     };
     const token = this.jwtService.sign(payload, secrets);
     return token;

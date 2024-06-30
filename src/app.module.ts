@@ -6,12 +6,14 @@ import { AuthModule } from './modules/Auth/auth.module';
 import { JwtService } from '@nestjs/jwt';
 import { JwtModule } from './modules/jwt/jwt.module';
 import { CustomConfigModule } from './config/config.module';
+import { VideoModule } from './modules/Video/video.module';
 
 @Module({
   imports: [
-    CustomConfigModule,
     AuthModule,
+    VideoModule,
     MongooseModule.forRoot(process.env.MONGO_CONNECTION),
+    CustomConfigModule,
     JwtModule,
   ],
   providers: [JwtService],
